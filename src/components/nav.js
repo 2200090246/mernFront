@@ -9,7 +9,7 @@ const Nav = () => {
     }
     return (
         <div className="header">
-            <img src=":https://static.vecteezy.com/system/resources/previews/009/029/391/non_2x/mws-logo-mws-letter-mws-letter-logo-design-initials-mws-logo-linked-with-circle-and-uppercase-monogram-logo-mws-typography-for-technology-business-and-real-estate-brand-vector.jpg." alt="logo" className="logo" />
+            <img src="https://static.vecteezy.com/system/resources/previews/009/029/391/non_2x/mws-logo-mws-letter-mws-letter-logo-design-initials-mws-logo-linked-with-circle-and-uppercase-monogram-logo-mws-typography-for-technology-business-and-real-estate-brand-vector.jpg." alt="logo" className="logo" />
            
             {
                 auth ?
