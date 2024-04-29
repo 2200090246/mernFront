@@ -1,0 +1,70 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.App{
+  background:url(./assets/ian-schneider-PAykYb-8Er8-unsplash.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+}
+.header{
+  background:rgb(73 46 46 / 16%);
+  backdrop-filter: blur(10px);
+}
+
+.heading{
+  color: rgb(206, 205, 205);
+  text-align: center;
+  margin-right: 400px;
+  border-radius: 30px;
+  padding: 10px 0px;
+  background-color:black;
+}
+
+.text{
+  font-size: 60px;
+  text-align: center;
+  margin-right: 400px;
+  color: rgb(110, 246, 169);
+  
+}
+
+.toggle-group {
+  display: flex;
+}
+
+.toggle-btn {
+  border: 1px solid #ccc;
+  padding: 8px 16px;
+  cursor: pointer;
+  background-color: #f0f0f0;
+}
+
+.toggle-btn.active {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.toggle-btn:not(:last-child) {
+  border-right: none;
+}
+
+.toggle-btn:hover {
+  background-color: #ddd;
+}
+*{
+  color:BLACK;
+}
