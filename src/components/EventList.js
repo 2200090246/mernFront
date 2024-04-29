@@ -18,7 +18,7 @@ const EventList = () => {
 
     const deleteEvent =async (id)=>{
          console.warn(id)
-         let result =await fetch(`http://localhost:5000/event/${id}`,{
+         let result =await fetch(`https://mernback-m52b.onrender.com/${id}`,{
             method:"Delete"
          });
          result = await result.json();
@@ -30,7 +30,7 @@ const EventList = () => {
     const searchHandle = async(event)=>{
         let key = event.target.value;
         if(key){
-            let result =await fetch(`http://localhost:5000/search/${key}`);
+            let result =await fetch(`https://mernback-m52b.onrender.com/search/${key}`);
             result= await result.json()
             if (result){
                 setEvents(result)
