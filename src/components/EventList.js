@@ -11,7 +11,7 @@ const EventList = () => {
     }, []);
 
     const getEvents = async () => {
-        let result = await fetch('http://localhost:5000/events');
+        let result = await fetch('https://mernback-m52b.onrender.com/events');
         result = await result.json();
         setEvents(result);
     }
