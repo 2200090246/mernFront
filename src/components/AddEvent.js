@@ -20,7 +20,7 @@ const AddEvent = () => {
         console.warn(name,date,venue,time,category,club);
         const userId = JSON.parse(localStorage.getItem('user'))._id;
         console.warn(userId);
-        let result = await fetch("http://localhost:5000/add-event",{
+        let result = await fetch("https://mernback-m52b.onrender.com/add-event",{
             method:"post",
             body: JSON.stringify({name,date,venue,time,category,club,userId}),
             headers: {
