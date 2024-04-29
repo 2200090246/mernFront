@@ -15,7 +15,7 @@ const UpdateEvent = () => {
     }, [])
     const getEventDetails = async () => {
         console.warn(params);
-        let result = await fetch(`http://localhost:5000/event/${params.id}`);
+        let result = await fetch(`https://mernback-m52b.onrender.com/event/${params.id}`);
         result = await result.json();
 
         setName(result.name);
@@ -27,7 +27,7 @@ const UpdateEvent = () => {
     }
     const updateEvent = async () => {
         console.warn(name, date, venue, time, category, club)
-        let result = await fetch(`http://localhost:5000/event/${params.id}`, {
+        let result = await fetch(`https://mernback-m52b.onrender.com/${params.id}`, {
             method: "Put",
             body: JSON.stringify({ name, date, venue, time, category, club }),
             headers: {
