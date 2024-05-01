@@ -27,7 +27,7 @@ const UpdateEvent = () => {
     }
     const updateEvent = async () => {
         console.warn(name, date, venue, time, category, club)
-        let result = await fetch(`https://mernback-m52b.onrender.com/${params.id}`, {
+        let result = await fetch(`https://mernback-m52b.onrender.com/event/${params.id}`, {
             method: "Put",
             body: JSON.stringify({ name, date, venue, time, category, club }),
             headers: {
