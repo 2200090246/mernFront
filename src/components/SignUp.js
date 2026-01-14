@@ -1,44 +1,76 @@
 import React, { useEffect, useState } from "react";
-import { json, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
-    const [name, setName] = useState(null);
-    const [email, setEmail] = useState(null);
-    const [password, setPassword] = useState(null);
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [role, setRole] = useState("user");
     const navigate = useNavigate();
+
     useEffect(() => {
         const auth = localStorage.getItem('user');
         if (auth) {
             navigate('/')
         }
-    }, [])
+    }, [navigate])
+
+    const validatePassword = (password) => {
+        const minLength = 8;
+        const hasUpperCase = /[A-Z]/;
+        const hasLowerCase = /[a-z]/;
+        const hasNumber = /\d/;
+        const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/;
+
+        if (password.length < minLength) {
+            return "Password must be at least 8 characters long.";
+        }
+        if (!hasUpperCase.test(password)) {
+            return "Password must contain at least one uppercase letter.";
+        }
+        if (!hasLowerCase.test(password)) {
+            return "Password must contain at least one lowercase letter.";
+        }
+        if (!hasNumber.test(password)) {
+            return "Password must contain at least one number.";
+        }
+        if (!hasSpecialChar.test(password)) {
+            return "Password must contain at least one special character.";
+        }
+        return null;
+    };
 
     const collectData = async () => {
-        if(name == null || email == null || password == null){
-            alert("Please enter valid details")
+        if (!name || !email || !password) {
+            alert("Please enter valid details");
+            return;
         }
-        else{
 
-            console.warn(name, email, password);
-            let result = await fetch("https://mernback-m52b.onrender.com/register", {
-                method: 'post',
-                body: JSON.stringify({ name, email, password }),
-                headers: {
+        const passwordError = validatePassword(password);
+        if (passwordError) {
+            alert(passwordError);
+            return;
+        }
+
+        console.warn(name, email, password, role);
+        let result = await fetch("https://mernback-m52b.onrender.com/register", {
+            method: 'post',
+            body: JSON.stringify({ name, email, password, role }),
+            headers: {
                 'Content-Type': 'application/json'
             }
         });
         result = await result.json();
-        
-        if (result.message == "user already Exist") {
+
+        if (result.message === "user already Exist") {
             alert("User Already Exist")
             navigate('/login')
         }
         else {
             console.warn(result);
-            localStorage.setItem("user", JSON.stringify(result))
-            navigate('/')
+            alert("Signup Successful! Please check your inbox to verify your email.");
+            navigate('/login');
         }
-    }
     }
     return (
         <div className="register">
