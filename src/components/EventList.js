@@ -66,7 +66,7 @@ const EventList = () => {
             setShowStudents(null);
             return;
         }
-        let result = await fetch(`https://mernback-m52b.onrender.com/${eventId}`);
+        let result = await fetch(`https://mernback-m52b.onrender.com/event-registrations/${eventId}`);
         result = await result.json();
         setStudentsList(result);
         setShowStudents(eventId);

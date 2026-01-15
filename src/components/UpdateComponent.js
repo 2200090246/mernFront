@@ -11,20 +11,21 @@ const UpdateEvent = () => {
     const params = useParams();
     const navigate = useNavigate();
     useEffect(() => {
-        getEventDetails();
-    }, [])
-    const getEventDetails = async () => {
-        console.warn(params);
-        let result = await fetch(`https://mernback-m52b.onrender.com/event/${params.id}`);
-        result = await result.json();
+        // Fetch event details when component mounts
+        const getEventDetails = async () => {
+            console.warn(params);
+            let result = await fetch(`https://mernback-m52b.onrender.com/event/${params.id}`);
+            result = await result.json();
 
-        setName(result.name);
-        setDate(result.date);
-        setVenue(result.venue);
-        setTime(result.time);
-        setCategory(result.category);
-        setClub(result.club)
-    }
+            setName(result.name);
+            setDate(result.date);
+            setVenue(result.venue);
+            setTime(result.time);
+            setCategory(result.category);
+            setClub(result.club)
+        }
+        getEventDetails();
+    }, [params])
     const updateEvent = async () => {
         console.warn(name, date, venue, time, category, club)
         let result = await fetch(`https://mernback-m52b.onrender.com/event/${params.id}`, {
