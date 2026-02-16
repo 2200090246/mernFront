@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+<<<<<<< HEAD
 import { BASE_URL } from '../config';
+=======
+>>>>>>> a2198b0c47e7c561079d1d6a3121ed462549c461
 
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -15,10 +18,15 @@ const Login = () => {
         }
     }, [navigate])
 
+<<<<<<< HEAD
 
 
     const handleLogin = async () => {
         let result = await fetch(`${BASE_URL}/login`, {
+=======
+    const handleLogin = async () => {
+        let result = await fetch("https://mernback-m52b.onrender.com/login", {
+>>>>>>> a2198b0c47e7c561079d1d6a3121ed462549c461
             method: 'post',
             body: JSON.stringify({ email, password }),
             headers: {
@@ -27,11 +35,16 @@ const Login = () => {
         });
         result = await result.json();
         console.warn(result)
+<<<<<<< HEAD
         if (result.result === "Invalid credentials") {
+=======
+        if (result.result === "invalid credentials") {
+>>>>>>> a2198b0c47e7c561079d1d6a3121ed462549c461
             alert("Invalid Credentials");
         } else if (result.result === "Email not verified. Please check your inbox.") {
             alert("Email not verified. Please check your inbox.");
             setShowResend(true);
+<<<<<<< HEAD
         } else if (result.result === "No user found" || result.result === "no user found") {
             alert("No User Found");
         } else if (result.email && result._id) {
@@ -46,6 +59,19 @@ const Login = () => {
     const handleResend = async () => {
         try {
             let result = await fetch(`${BASE_URL}/resend-verification`, {
+=======
+        } else if (result.result === "no user found") {
+            alert("No User Found");
+        } else {
+            localStorage.setItem("user", JSON.stringify(result));
+            navigate('/');
+        }
+    }
+
+    const handleResend = async () => {
+        try {
+            let result = await fetch("https://mernback-m52b.onrender.com/resend-verification", {
+>>>>>>> a2198b0c47e7c561079d1d6a3121ed462549c461
                 method: 'post',
                 body: JSON.stringify({ email }),
                 headers: {
