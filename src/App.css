@@ -55,6 +55,26 @@
   width: 100%;
 }
 
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  z-index: 1001;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: var(--text-color);
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
 .nav-right {
   margin-left: auto;
 }
