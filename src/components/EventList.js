@@ -148,7 +148,9 @@ const EventList = () => {
                                     {studentsList.length > 0 ? (
                                         <ul>
                                             {studentsList.map(reg => (
-                                                <li key={reg._id}>{reg.userId.name} ({reg.userId.email})</li>
+                                                <li key={reg._id}>
+                                                    {reg.userId ? `${reg.userId.name} (${reg.userId.email})` : "Unknown User (Deleted)"}
+                                                </li>
                                             ))}
                                         </ul>
                                     ) : <p>No registrations yet.</p>}
