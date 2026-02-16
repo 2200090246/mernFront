@@ -28,6 +28,12 @@ const Nav = () => {
                 <span></span>
             </button>
 
+            {/* Backdrop Overlay */}
+            <div
+                className={`menu-backdrop ${menuOpen ? 'active' : ''}`}
+                onClick={() => setMenuOpen(false)}
+            ></div>
+
             {
                 auth ?
 
