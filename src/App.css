@@ -410,8 +410,11 @@
     width: 100%;
     max-width: 350px;
   }
-  
-  .login, .register, .add-event, .update-event {
+
+  .login,
+  .register,
+  .add-event,
+  .update-event {
     margin-top: 2rem;
     padding: 0 1rem;
     width: 100%;
@@ -420,5 +423,44 @@
 
   .search-event-box {
     width: 90%;
+  }
+
+  /* Improve Card Actions on Mobile */
+  .card-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .delete-btn,
+  .update-btn,
+  .view-students-btn,
+  .register-btn,
+  .unregister-btn {
+    width: 100%;
+    padding: 12px;
+  }
+
+  /* Improved Mobile Navbar */
+  .nav-ul {
+    width: 100%;
+    gap: 15px;
+  }
+
+  .nav-ul li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-ul li a {
+    display: block;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .nav-ul li a:hover {
+    background: rgba(255, 255, 255, 0.1);
   }
 }
