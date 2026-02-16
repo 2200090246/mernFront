@@ -377,11 +377,48 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .nav-ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .nav-right {
+    margin-left: 0;
+  }
+
   .event-grid {
     grid-template-columns: 1fr;
   }
 
+  .event-list {
+    padding: 1rem;
+  }
+
   .event-list h3 {
     font-size: 2rem;
+  }
+
+  .inputBox {
+    width: 100%;
+    max-width: 350px;
+  }
+  
+  .login, .register, .add-event, .update-event {
+    margin-top: 2rem;
+    padding: 0 1rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .search-event-box {
+    width: 90%;
   }
 }
