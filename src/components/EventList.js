@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-<<<<<<< HEAD
 import { BASE_URL } from '../config';
-=======
->>>>>>> a2198b0c47e7c561079d1d6a3121ed462549c461
 
 const EventList = () => {
     const [events, setEvents] = useState([]);
@@ -14,30 +11,20 @@ const EventList = () => {
     useEffect(() => {
         getEvents();
         const user = JSON.parse(localStorage.getItem('user'));
-<<<<<<< HEAD
         if (user && user._id && user.role !== 'admin') {
             getUserRegistrations(user._id);
         } else if (user && !user._id) {
             console.error("User object missing _id in localStorage");
-=======
-        if (user && user.role !== 'admin') {
-            getUserRegistrations(user._id);
->>>>>>> a2198b0c47e7c561079d1d6a3121ed462549c461
         }
     }, []);
 
     const getEvents = async () => {
-<<<<<<< HEAD
         let result = await fetch(`${BASE_URL}/events`);
-=======
-        let result = await fetch('https://mernback-m52b.onrender.com/events');
->>>>>>> a2198b0c47e7c561079d1d6a3121ed462549c461
         result = await result.json();
         setEvents(result);
     }
 
     const getUserRegistrations = async (userId) => {
-<<<<<<< HEAD
         try {
             let result = await fetch(`${BASE_URL}/my-registrations/${userId}`);
             result = await result.json();
@@ -51,24 +38,15 @@ const EventList = () => {
             console.error("Error fetching registrations:", error);
             setUserRegistrations([]);
         }
-=======
-        let result = await fetch(`https://mernback-m52b.onrender.com/my-registrations/${userId}`);
-        result = await result.json();
-        setUserRegistrations(result.map(reg => reg.eventId._id));
->>>>>>> a2198b0c47e7c561079d1d6a3121ed462549c461
     }
 
     const registerEvent = async (eventId) => {
         const user = JSON.parse(localStorage.getItem('user'));
-<<<<<<< HEAD
         if (!user || !user._id) {
             alert("Please login again. User data missing.");
             return;
         }
         let result = await fetch(`${BASE_URL}/register-event`, {
-=======
-        let result = await fetch('https://mernback-m52b.onrender.com/register-event', {
->>>>>>> a2198b0c47e7c561079d1d6a3121ed462549c461
             method: 'post',
             body: JSON.stringify({ userId: user._id, eventId }),
             headers: { 'Content-Type': 'application/json' }
@@ -84,17 +62,12 @@ const EventList = () => {
 
     const unregisterEvent = async (eventId) => {
         const user = JSON.parse(localStorage.getItem('user'));
-<<<<<<< HEAD
         if (!user || !user._id) {
             alert("Please login again. User data missing.");
             return;
         }
         if (window.confirm("Are you sure you want to unregister from this event?")) {
             let result = await fetch(`${BASE_URL}/unregister-event`, {
-=======
-        if (window.confirm("Are you sure you want to unregister from this event?")) {
-            let result = await fetch('https://mernback-m52b.onrender.com/unregister-event', {
->>>>>>> a2198b0c47e7c561079d1d6a3121ed462549c461
                 method: 'post',
                 body: JSON.stringify({ userId: user._id, eventId }),
                 headers: { 'Content-Type': 'application/json' }
@@ -114,11 +87,7 @@ const EventList = () => {
             setShowStudents(null);
             return;
         }
-<<<<<<< HEAD
         let result = await fetch(`${BASE_URL}/event-registrations/${eventId}`);
-=======
-        let result = await fetch(`https://mernback-m52b.onrender.com/event-registrations/${eventId}`);
->>>>>>> a2198b0c47e7c561079d1d6a3121ed462549c461
         result = await result.json();
         setStudentsList(result);
         setShowStudents(eventId);
@@ -126,11 +95,7 @@ const EventList = () => {
 
     const deleteEvent = async (id) => {
         const user = JSON.parse(localStorage.getItem('user'));
-<<<<<<< HEAD
         let result = await fetch(`${BASE_URL}/event/${id}`, {
-=======
-        let result = await fetch(`https://mernback-m52b.onrender.com/event/${id}`, {
->>>>>>> a2198b0c47e7c561079d1d6a3121ed462549c461
             method: "Delete",
             headers: {
                 'Content-Type': 'application/json'
@@ -146,11 +111,7 @@ const EventList = () => {
     const searchHandle = async (event) => {
         let key = event.target.value;
         if (key) {
-<<<<<<< HEAD
             let result = await fetch(`${BASE_URL}/search/${key}`);
-=======
-            let result = await fetch(`https://mernback-m52b.onrender.com/search/${key}`);
->>>>>>> a2198b0c47e7c561079d1d6a3121ed462549c461
             result = await result.json()
             if (result) {
                 setEvents(result)

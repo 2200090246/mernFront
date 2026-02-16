@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
-<<<<<<< HEAD
 import { BASE_URL } from '../config';
-=======
->>>>>>> a2198b0c47e7c561079d1d6a3121ed462549c461
 
 const SignUp = () => {
     const [name, setName] = useState("");
@@ -44,11 +41,7 @@ const SignUp = () => {
         return null;
     };
 
-<<<<<<< HEAD
 
-
-=======
->>>>>>> a2198b0c47e7c561079d1d6a3121ed462549c461
     const collectData = async () => {
         if (!name || !email || !password) {
             alert("Please enter valid details");
@@ -62,11 +55,7 @@ const SignUp = () => {
         }
 
         console.warn(name, email, password, role);
-<<<<<<< HEAD
         let result = await fetch(`${BASE_URL}/register`, {
-=======
-        let result = await fetch("https://mernback-m52b.onrender.com/register", {
->>>>>>> a2198b0c47e7c561079d1d6a3121ed462549c461
             method: 'post',
             body: JSON.stringify({ name, email, password, role }),
             headers: {
@@ -75,7 +64,6 @@ const SignUp = () => {
         });
         result = await result.json();
 
-<<<<<<< HEAD
         if (result.message === "User created successfully. Please verify your email.") {
             console.warn(result);
             alert("Signup Successful! Please check your inbox to verify your email.");
@@ -85,16 +73,6 @@ const SignUp = () => {
             navigate('/login');
         } else {
             alert(result.message || "Signup failed");
-=======
-        if (result.message === "user already Exist") {
-            alert("User Already Exist")
-            navigate('/login')
-        }
-        else {
-            console.warn(result);
-            alert("Signup Successful! Please check your inbox to verify your email.");
-            navigate('/login');
->>>>>>> a2198b0c47e7c561079d1d6a3121ed462549c461
         }
     }
     return (

@@ -1,25 +1,17 @@
 import React, { useEffect, useState } from "react";
-<<<<<<< HEAD
 import { BASE_URL } from '../config';
-=======
->>>>>>> a2198b0c47e7c561079d1d6a3121ed462549c461
 
 const MyRegistrations = () => {
     const [registrations, setRegistrations] = useState([]);
 
     useEffect(() => {
         const user = JSON.parse(localStorage.getItem('user'));
-<<<<<<< HEAD
         if (user && user._id) {
-=======
-        if (user) {
->>>>>>> a2198b0c47e7c561079d1d6a3121ed462549c461
             getRegistrations(user._id);
         }
     }, []);
 
     const getRegistrations = async (userId) => {
-<<<<<<< HEAD
         if (!userId) return;
         let result = await fetch(`${BASE_URL}/my-registrations/${userId}`);
         result = await result.json();
@@ -28,23 +20,13 @@ const MyRegistrations = () => {
         } else {
             setRegistrations([]);
         }
-=======
-        let result = await fetch(`https://mernback-m52b.onrender.com/my-registrations/${userId}`);
-        result = await result.json();
-        setRegistrations(result);
->>>>>>> a2198b0c47e7c561079d1d6a3121ed462549c461
     }
 
     const unregisterEvent = async (eventId) => {
         const user = JSON.parse(localStorage.getItem('user'));
-<<<<<<< HEAD
         if (!user || !user._id) return;
         if (window.confirm("Are you sure you want to unregister from this event?")) {
             let result = await fetch(`${BASE_URL}/unregister-event`, {
-=======
-        if (window.confirm("Are you sure you want to unregister from this event?")) {
-            let result = await fetch('https://mernback-m52b.onrender.com/unregister-event', {
->>>>>>> a2198b0c47e7c561079d1d6a3121ed462549c461
                 method: 'post',
                 body: JSON.stringify({ userId: user._id, eventId }),
                 headers: { 'Content-Type': 'application/json' }

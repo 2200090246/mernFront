@@ -1,9 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-<<<<<<< HEAD
 import { BASE_URL } from '../config';
-=======
->>>>>>> a2198b0c47e7c561079d1d6a3121ed462549c461
 
 const AddEvent = () => {
     const [name, setName] = React.useState('');
@@ -14,11 +11,7 @@ const AddEvent = () => {
     const [club, setClub] = React.useState('');
     const [error, setError] = React.useState(false);
     const navigate = useNavigate()
-<<<<<<< HEAD
 
-
-=======
->>>>>>> a2198b0c47e7c561079d1d6a3121ed462549c461
     const addEvent = async () => {
 
         if (!name || !date || !venue || !time || !category || !club) {
@@ -28,11 +21,7 @@ const AddEvent = () => {
         console.warn(name, date, venue, time, category, club);
         const userId = JSON.parse(localStorage.getItem('user'))._id;
         console.warn(userId);
-<<<<<<< HEAD
         let result = await fetch(`${BASE_URL}/add-event`, {
-=======
-        let result = await fetch("https://mernback-m52b.onrender.com/add-event", {
->>>>>>> a2198b0c47e7c561079d1d6a3121ed462549c461
             method: "post",
             body: JSON.stringify({ name, date, venue, time, category, club, userId }),
             headers: {

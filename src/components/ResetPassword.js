@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-<<<<<<< HEAD
 import { BASE_URL } from '../config';
-=======
->>>>>>> a2198b0c47e7c561079d1d6a3121ed462549c461
 
 const ResetPassword = () => {
     const [password, setPassword] = useState('');
@@ -20,11 +17,7 @@ const ResetPassword = () => {
             alert("Passwords do not match");
             return;
         }
-<<<<<<< HEAD
         let result = await fetch(`${BASE_URL}/reset-password/${params.token}`, {
-=======
-        let result = await fetch(`https://mernback-m52b.onrender.com/reset-password/${params.token}`, {
->>>>>>> a2198b0c47e7c561079d1d6a3121ed462549c461
             method: 'post',
             body: JSON.stringify({ password }),
             headers: { 'Content-Type': 'application/json' }

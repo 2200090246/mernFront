@@ -1,9 +1,6 @@
 import React, { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-<<<<<<< HEAD
 import { BASE_URL } from '../config';
-=======
->>>>>>> a2198b0c47e7c561079d1d6a3121ed462549c461
 
 const UpdateEvent = () => {
     const [name, setName] = React.useState('');
@@ -18,11 +15,7 @@ const UpdateEvent = () => {
         // Fetch event details when component mounts
         const getEventDetails = async () => {
             console.warn(params);
-<<<<<<< HEAD
             let result = await fetch(`${BASE_URL}/event/${params.id}`);
-=======
-            let result = await fetch(`https://mernback-m52b.onrender.com/event/${params.id}`);
->>>>>>> a2198b0c47e7c561079d1d6a3121ed462549c461
             result = await result.json();
 
             setName(result.name);
@@ -36,11 +29,7 @@ const UpdateEvent = () => {
     }, [params])
     const updateEvent = async () => {
         console.warn(name, date, venue, time, category, club)
-<<<<<<< HEAD
         let result = await fetch(`${BASE_URL}/event/${params.id}`, {
-=======
-        let result = await fetch(`https://mernback-m52b.onrender.com/event/${params.id}`, {
->>>>>>> a2198b0c47e7c561079d1d6a3121ed462549c461
             method: "Put",
             body: JSON.stringify({ name, date, venue, time, category, club }),
             headers: {
